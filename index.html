@@ -34,7 +34,33 @@
             <button class="Clear-Btn">Login</button>
             <button class="Shaded-Btn">Get Started</button>
         </div>
+
+        <!-- Hamburger for mobile -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <div class="mobile-nav-inner">
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <ul class="mobile-nav-lists">
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Features</a></li>
+                <li><a href="">Pricing</a></li>
+            </ul>
+            <div class="mobile-nav-btns">
+                <button class="Clear-Btn mobile-full-btn">Login</button>
+                <button class="Shaded-Btn mobile-full-btn">Get Started</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Main section -->
 
@@ -566,6 +592,28 @@
 
 
 
-</body>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavClose = document.getElementById('mobileNavClose');
 
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileNavClose.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+
+        mobileNav.addEventListener('click', (e) => {
+            if (e.target === mobileNav) {
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+
+</body>
 </html>
